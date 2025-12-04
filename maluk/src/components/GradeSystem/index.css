@@ -1,0 +1,100 @@
+.grade-system-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.grade-system-container h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.grade-table th,
+.grade-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.grade-table th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.grade-table tr:hover {
+    background-color: #f1f3f5;
+}
+
+.grade-cell {
+    font-weight: bold;
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.points-cell {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Specific Row Styling */
+.row-E,
+.row-F {
+    background-color: #fff0f0;
+}
+
+.row-E .grade-cell,
+.row-F .grade-cell {
+    color: #e74c3c;
+}
+
+/* Dark Mode Support */
+body.dark-mode .grade-system-container {
+    background: #2d3436;
+    color: #dfe6e9;
+}
+
+body.dark-mode .grade-system-container h2 {
+    color: #dfe6e9;
+}
+
+body.dark-mode .grade-table th {
+    background-color: #353b48;
+    color: #dfe6e9;
+    border-bottom-color: #636e72;
+}
+
+body.dark-mode .grade-table td {
+    border-bottom-color: #636e72;
+    color: #dfe6e9;
+}
+
+body.dark-mode .grade-table tr:hover {
+    background-color: #353b48;
+}
+
+body.dark-mode .points-cell {
+    color: #dfe6e9;
+}
+
+body.dark-mode .row-E,
+body.dark-mode .row-F {
+    background-color: rgba(231, 76, 60, 0.1);
+}

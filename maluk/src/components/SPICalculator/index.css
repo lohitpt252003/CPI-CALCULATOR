@@ -100,6 +100,108 @@
     animation: fadeIn 0.5s ease;
 }
 
+.spi-calculator-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid currentColor;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.subjects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subject-row {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.input-name {
+    flex: 2;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.input-credit {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.select-grade {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.btn-remove {
+    background: #ff5252;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-add,
+.btn-calc {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+}
+
+.btn-add:hover,
+.btn-calc:hover {
+    opacity: 0.9;
+}
+
+.result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
 .spi-value {
     font-size: 2rem;
     font-weight: bold;
@@ -115,4 +217,36 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.header-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-clear {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(255, 71, 87, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-clear:hover {
+    background-color: #ff6b81;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.4);
+}
+
+.btn-clear:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 71, 87, 0.3);
 }
