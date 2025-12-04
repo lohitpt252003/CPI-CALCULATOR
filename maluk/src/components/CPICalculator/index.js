@@ -23,7 +23,24 @@ const CPICalculator = () => {
         setCourses(courses.filter(course => course.id !== id));
     };
 
+    const playAudio = (grade) => {
+        let audioFile = null;
+        if (grade === 'E') {
+            audioFile = '/audio/song_for_e.mpeg';
+        } else if (grade === 'F') {
+            audioFile = '/audio/song_for_f.mpeg';
+        }
+
+        if (audioFile) {
+            const audio = new Audio(audioFile);
+            audio.play().catch(e => console.log("Audio play failed", e));
+        }
+    };
+
     const handleCourseChange = (id, field, value) => {
+        if (field === 'grade') {
+            playAudio(value);
+        }
         const newCourses = courses.map(course =>
             course.id === id ? { ...course, [field]: value } : course
         );
@@ -85,13 +102,25 @@ const CPICalculator = () => {
         setTheme(prev => prev === 'light' ? 'dark' : 'light');
     };
 
+    const handleClear = () => {
+        setCourses([{ id: 1, name: '', credit: '', grade: 'A' }]);
+        setSemesters([{ id: 1, spi: '', credit: '' }]);
+        setCpi(null);
+        localStorage.removeItem('cpi_courses');
+        localStorage.removeItem('cpi_semesters');
+        localStorage.removeItem('cpi_isRepeated');
+    };
+
     return (
         <div className={`cpi-calculator-container ${theme}-theme`}>
             <div className="header">
                 <h2>CPI Calculator</h2>
-                <button onClick={toggleTheme} className="theme-toggle">
-                    {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-                </button>
+                <div className="header-controls">
+                    <button onClick={handleClear} className="btn-clear">Clear Data</button>
+                    <button onClick={toggleTheme} className="theme-toggle">
+                        {theme === 'light' ? '🌙' : '☀️'}
+                    </button>
+                </div>
             </div>
 
             <div className="mode-toggle">

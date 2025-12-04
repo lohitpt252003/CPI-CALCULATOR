@@ -35,7 +35,24 @@ const SPICalculator = () => {
         setSubjects(subjects.filter(sub => sub.id !== id));
     };
 
+    const playAudio = (grade) => {
+        let audioFile = null;
+        if (grade === 'E') {
+            audioFile = '/audio/song_for_e.mpeg';
+        } else if (grade === 'F') {
+            audioFile = '/audio/song_for_f.mpeg';
+        }
+
+        if (audioFile) {
+            const audio = new Audio(audioFile);
+            audio.play().catch(e => console.log("Audio play failed", e));
+        }
+    };
+
     const handleChange = (id, field, value) => {
+        if (field === 'grade') {
+            playAudio(value);
+        }
         const newSubjects = subjects.map(sub =>
             sub.id === id ? { ...sub, [field]: value } : sub
         );
@@ -67,13 +84,22 @@ const SPICalculator = () => {
         setTheme(prev => prev === 'light' ? 'dark' : 'light');
     };
 
+    const handleClear = () => {
+        setSubjects([{ id: 1, name: '', credit: '', grade: 'A' }]);
+        setSpi(null);
+        localStorage.removeItem('spi_subjects');
+    };
+
     return (
         <div className={`spi-calculator-container ${theme}-theme`}>
             <div className="header">
                 <h2>SPI Calculator</h2>
-                <button onClick={toggleTheme} className="theme-toggle">
-                    {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-                </button>
+                <div className="header-controls">
+                    <button onClick={handleClear} className="btn-clear">Clear Data</button>
+                    <button onClick={toggleTheme} className="theme-toggle">
+                        {theme === 'light' ? '🌙' : '☀️'}
+                    </button>
+                </div>
             </div>
 
             <div className="subjects-list">
