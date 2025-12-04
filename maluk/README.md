@@ -1,4 +1,4 @@
-# SPI & CPI Calculator
+# IITK CPI SPI Calculator
 
 A comprehensive React application for calculating Semester Performance Index (SPI) and Cumulative Performance Index (CPI). Designed with a clean UI, dark/light mode support, and persistent data storage.
 
