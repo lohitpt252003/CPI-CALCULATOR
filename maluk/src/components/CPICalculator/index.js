@@ -8,7 +8,6 @@ const CPICalculator = () => {
     const [courses, setCourses] = useState([{ id: 1, name: '', credit: '', grade: 'A' }]);
     const [semesters, setSemesters] = useState([{ id: 1, spi: '', credit: '' }]);
     const [cpi, setCpi] = useState(null);
-    const [theme, setTheme] = useState('light');
 
     const gradePoints = {
         'A*': 10, 'A': 10, 'B+': 9, 'B': 8, 'C+': 7, 'C': 6, 'D+': 5, 'D': 4, 'E': 0, 'F': 0
@@ -100,10 +99,6 @@ const CPICalculator = () => {
         }
     };
 
-    const toggleTheme = () => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light');
-    };
-
     const handleClear = () => {
         setCourses([{ id: 1, name: '', credit: '', grade: 'A' }]);
         setSemesters([{ id: 1, spi: '', credit: '' }]);
@@ -114,14 +109,11 @@ const CPICalculator = () => {
     };
 
     return (
-        <div className={`cpi-calculator-container ${theme}-theme`}>
+        <div className="cpi-calculator-container">
             <div className="header">
                 <h2>CPI Calculator</h2>
                 <div className="header-controls">
                     <button onClick={handleClear} className="btn-clear">Clear Data</button>
-                    <button onClick={toggleTheme} className="theme-toggle">
-                        {theme === 'light' ? '🌙' : '☀️'}
-                    </button>
                 </div>
             </div>
 

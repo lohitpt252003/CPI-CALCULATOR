@@ -42,6 +42,17 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.nav-btn.theme-btn {
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
 @media (max-width: 600px) {
   .app-nav {
     flex-wrap: wrap;
@@ -53,5 +64,9 @@
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
     flex: 1 1 auto;
+  }
+
+  .nav-btn.theme-btn {
+    flex: 0 0 auto;
   }
 }

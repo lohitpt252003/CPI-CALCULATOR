@@ -10,18 +10,11 @@ const SPICalculator = () => {
         return savedSubjects ? JSON.parse(savedSubjects) : [{ id: 1, name: '', credit: '', grade: 'A' }];
     });
     const [spi, setSpi] = useState(null);
-    const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('spi_theme') || 'light';
-    });
 
-    // Save to localStorage whenever subjects or theme change
+    // Save to localStorage whenever subjects change
     useEffect(() => {
         localStorage.setItem('spi_subjects', JSON.stringify(subjects));
     }, [subjects]);
-
-    useEffect(() => {
-        localStorage.setItem('spi_theme', theme);
-    }, [theme]);
 
     const gradePoints = {
         'A*': 10, 'A': 10, 'B+': 9, 'B': 8, 'C+': 7, 'C': 6, 'D+': 5, 'D': 4, 'E': 0, 'F': 0
@@ -82,10 +75,6 @@ const SPICalculator = () => {
         }
     };
 
-    const toggleTheme = () => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light');
-    };
-
     const handleClear = () => {
         setSubjects([{ id: 1, name: '', credit: '', grade: 'A' }]);
         setSpi(null);
@@ -93,14 +82,11 @@ const SPICalculator = () => {
     };
 
     return (
-        <div className={`spi-calculator-container ${theme}-theme`}>
+        <div className="spi-calculator-container">
             <div className="header">
                 <h2>SPI Calculator</h2>
                 <div className="header-controls">
                     <button onClick={handleClear} className="btn-clear">Clear Data</button>
-                    <button onClick={toggleTheme} className="theme-toggle">
-                        {theme === 'light' ? '🌙' : '☀️'}
-                    </button>
                 </div>
             </div>
 

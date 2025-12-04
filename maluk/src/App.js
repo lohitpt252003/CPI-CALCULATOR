@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SPICalculator from './components/SPICalculator';
 import CPICalculator from './components/CPICalculator';
 import HowToUse from './components/HowToUse';
@@ -8,9 +8,21 @@ import './App.css';
 
 function App() {
   const [mode, setMode] = useState('spi'); // 'spi', 'cpi', 'how-to', 'grades', 'credits'
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('app_theme') || 'light';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('app_theme', theme);
+    document.body.className = theme === 'dark' ? 'dark-mode' : '';
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   return (
-    <div className="App">
+    <div className={`App ${theme}-theme`}>
       <div className="app-nav">
         <button
           className={`nav-btn ${mode === 'spi' ? 'active' : ''}`}
@@ -41,6 +53,13 @@ function App() {
           onClick={() => setMode('credits')}
         >
           Credits
+        </button>
+        <button
+          className="nav-btn theme-btn"
+          onClick={toggleTheme}
+          title="Toggle Theme"
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
         </button>
       </div>
 
