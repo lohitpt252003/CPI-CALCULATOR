@@ -4,9 +4,24 @@ import './light.css';
 import './dark.css';
 
 const SPICalculator = () => {
-    const [subjects, setSubjects] = useState([{ id: 1, name: '', credit: '', grade: 'A' }]);
+    // Initialize state from localStorage if available
+    const [subjects, setSubjects] = useState(() => {
+        const savedSubjects = localStorage.getItem('spi_subjects');
+        return savedSubjects ? JSON.parse(savedSubjects) : [{ id: 1, name: '', credit: '', grade: 'A' }];
+    });
     const [spi, setSpi] = useState(null);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('spi_theme') || 'light';
+    });
+
+    // Save to localStorage whenever subjects or theme change
+    useEffect(() => {
+        localStorage.setItem('spi_subjects', JSON.stringify(subjects));
+    }, [subjects]);
+
+    useEffect(() => {
+        localStorage.setItem('spi_theme', theme);
+    }, [theme]);
 
     const gradePoints = {
         'A*': 10, 'A': 10, 'B+': 9, 'B': 8, 'C+': 7, 'C': 6, 'D+': 5, 'D': 4, 'E': 0, 'F': 0
