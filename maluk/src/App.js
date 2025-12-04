@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import SPICalculator from './components/SPICalculator';
 import CPICalculator from './components/CPICalculator';
+import HowToUse from './components/HowToUse';
 import './App.css';
 
 function App() {
-  const [mode, setMode] = useState('spi'); // 'spi' or 'cpi'
+  const [mode, setMode] = useState('spi'); // 'spi', 'cpi', or 'how-to'
 
   return (
     <div className="App">
@@ -21,9 +22,17 @@ function App() {
         >
           CPI Calculator
         </button>
+        <button
+          className={`nav-btn ${mode === 'how-to' ? 'active' : ''}`}
+          onClick={() => setMode('how-to')}
+        >
+          How to Use
+        </button>
       </div>
 
-      {mode === 'spi' ? <SPICalculator /> : <CPICalculator />}
+      {mode === 'spi' && <SPICalculator />}
+      {mode === 'cpi' && <CPICalculator />}
+      {mode === 'how-to' && <HowToUse />}
     </div>
   );
 }

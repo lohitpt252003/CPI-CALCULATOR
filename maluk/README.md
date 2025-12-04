@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# SPI & CPI Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive React application for calculating Semester Performance Index (SPI) and Cumulative Performance Index (CPI). Designed with a clean UI, dark/light mode support, and persistent data storage.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 📊 SPI Calculator
+- **Subject-wise Entry**: Add subjects with their names, credits, and grades.
+- **Grade Points**: Supports standard grading (A*, A, B+, etc.).
+- **Real-time Calculation**: Instantly calculates your SPI.
 
-### `npm start`
+### 📈 CPI Calculator
+- **Dual Modes**:
+    - **Repeated Course Mode**: Enter individual courses (Credits & Grade) to handle repeated courses correctly.
+    - **Semester Mode**: Enter semester details (SPI & Credits) for quick calculation.
+- **Toggle Switch**: Easily switch between modes based on your needs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🎨 User Experience
+- **Dark & Light Mode**: Switch between themes for comfortable viewing.
+- **Data Persistence**: Your data is automatically saved to your browser's LocalStorage. Refreshing the page won't lose your work!
+- **Clear Data**: One-click reset button to wipe data and start fresh.
+- **Funny Audio Feedback**: Select Grade 'E' or 'F' for a surprise audio cue! 🎵
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run
 
-### `npm test`
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/lohitpt252003/CPI-CALCULATOR.git
+    cd CPI-CALCULATOR/maluk
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-### `npm run build`
+3.  **Start the application**:
+    ```bash
+    npm start
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   `src/components/SPICalculator`: Contains logic and styles for the SPI Calculator.
+-   `src/components/CPICalculator`: Contains logic and styles for the CPI Calculator.
+-   `public/audio`: Contains audio files for the funny feedback feature.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to fork this project and submit pull requests!
