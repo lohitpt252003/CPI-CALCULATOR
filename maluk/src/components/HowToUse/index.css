@@ -39,6 +39,7 @@
 .subsection h4 {
     color: #e67e22;
     margin-bottom: 0.5rem;
+    padding-left: 0;
 }
 
 ul {
@@ -82,4 +83,19 @@ body.dark-mode .section h3 {
 
 body.dark-mode li::before {
     color: #0984e3;
+}
+
+@media (max-width: 600px) {
+    .how-to-use-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .how-to-use-container h2 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
 }

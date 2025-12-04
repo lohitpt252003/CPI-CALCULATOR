@@ -156,3 +156,31 @@ body.dark-mode .social-btn.github {
     background: #dfe6e9;
     color: #2d3436;
 }
+
+@media (max-width: 600px) {
+    .credits-container {
+        padding: 1rem;
+    }
+
+    .credits-card {
+        padding: 1.5rem;
+    }
+
+    .developers-grid {
+        gap: 2rem;
+    }
+
+    .dev-name {
+        font-size: 1.5rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

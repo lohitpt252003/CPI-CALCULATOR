@@ -41,6 +41,8 @@ const SPICalculator = () => {
             audioFile = '/audio/song_for_e.mpeg';
         } else if (grade === 'F') {
             audioFile = '/audio/song_for_f.mpeg';
+        } else if (grade === 'A' || grade === 'A*') {
+            audioFile = '/audio/song_for_a.mp3';
         }
 
         if (audioFile) {

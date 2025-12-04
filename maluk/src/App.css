@@ -41,3 +41,17 @@
   color: #282c34;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 600px) {
+  .app-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .nav-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    flex: 1 1 auto;
+  }
+}

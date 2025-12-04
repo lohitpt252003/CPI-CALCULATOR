@@ -98,3 +98,16 @@ body.dark-mode .row-E,
 body.dark-mode .row-F {
     background-color: rgba(231, 76, 60, 0.1);
 }
+
+@media (max-width: 600px) {
+    .grade-system-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .grade-table th,
+    .grade-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
