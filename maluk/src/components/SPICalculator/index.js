@@ -4,16 +4,16 @@ import './light.css';
 import './dark.css';
 
 const SPICalculator = () => {
-    const [subjects, setSubjects] = useState([{ id: 1, name: '', credit: '', grade: '10' }]);
+    const [subjects, setSubjects] = useState([{ id: 1, name: '', credit: '', grade: 'A' }]);
     const [spi, setSpi] = useState(null);
     const [theme, setTheme] = useState('light');
 
     const gradePoints = {
-        '10': 10, '9': 9, '8': 8, '7': 7, '6': 6, '5': 5, '4': 4, '0': 0
+        'A*': 10, 'A': 10, 'B+': 9, 'B': 8, 'C+': 7, 'C': 6, 'D+': 5, 'D': 4, 'E': 0, 'F': 0
     };
 
     const handleAddSubject = () => {
-        setSubjects([...subjects, { id: subjects.length + 1, name: '', credit: '', grade: '10' }]);
+        setSubjects([...subjects, { id: subjects.length + 1, name: '', credit: '', grade: 'A' }]);
     };
 
     const handleRemoveSubject = (id) => {
@@ -83,14 +83,16 @@ const SPICalculator = () => {
                             onChange={(e) => handleChange(sub.id, 'grade', e.target.value)}
                             className="select-grade"
                         >
-                            <option value="10">O (10)</option>
-                            <option value="9">A+ (9)</option>
-                            <option value="8">A (8)</option>
-                            <option value="7">B+ (7)</option>
-                            <option value="6">B (6)</option>
-                            <option value="5">C (5)</option>
-                            <option value="4">P (4)</option>
-                            <option value="0">F (0)</option>
+                            <option value="A*">A* (10)</option>
+                            <option value="A">A (10)</option>
+                            <option value="B+">B+ (9)</option>
+                            <option value="B">B (8)</option>
+                            <option value="C+">C+ (7)</option>
+                            <option value="C">C (6)</option>
+                            <option value="D+">D+ (5)</option>
+                            <option value="D">D (4)</option>
+                            <option value="E">E (0)</option>
+                            <option value="F">F (0)</option>
                         </select>
                         {subjects.length > 1 && (
                             <button onClick={() => handleRemoveSubject(sub.id)} className="btn-remove">X</button>
