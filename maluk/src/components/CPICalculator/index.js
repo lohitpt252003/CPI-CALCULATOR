@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-import './light.css';
-import './dark.css';
+import './index.css';
 
 const CPICalculator = () => {
     const [isRepeated, setIsRepeated] = useState(true); // Default to repeated (current method)

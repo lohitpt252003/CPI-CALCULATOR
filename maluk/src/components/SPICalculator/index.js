@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import './light.css';
-import './dark.css';
+import './index.css';
 
 const SPICalculator = () => {
     // Initialize state from localStorage if available
