@@ -42,6 +42,9 @@ const CPICalculator = () => {
         if (field === 'grade') {
             playAudio(value);
         }
+        if (field === 'credit' && value < 0) {
+            return; // Prevent negative values
+        }
         const newCourses = courses.map(course =>
             course.id === id ? { ...course, [field]: value } : course
         );
@@ -58,6 +61,9 @@ const CPICalculator = () => {
     };
 
     const handleSemesterChange = (id, field, value) => {
+        if (field === 'credit' && value < 0) {
+            return; // Prevent negative values
+        }
         const newSemesters = semesters.map(sem =>
             sem.id === id ? { ...sem, [field]: value } : sem
         );
@@ -67,10 +73,16 @@ const CPICalculator = () => {
     const calculateCPI = () => {
         let totalCredits = 0;
         let totalPoints = 0;
+        let hasError = false;
 
         if (isRepeated) {
             // Course-based calculation
-            courses.forEach(course => {
+            for (const course of courses) {
+                if (!course.credit || isNaN(parseFloat(course.credit)) || parseFloat(course.credit) <= 0) {
+                    alert(`Please enter a valid positive credit for course ${course.name || '#' + course.id}`);
+                    hasError = true;
+                    break;
+                }
                 const credit = parseFloat(course.credit);
                 const points = gradePoints[course.grade];
 
@@ -78,10 +90,15 @@ const CPICalculator = () => {
                     totalCredits += credit;
                     totalPoints += credit * points;
                 }
-            });
+            }
         } else {
             // Semester-based calculation
-            semesters.forEach(sem => {
+            for (const sem of semesters) {
+                if (!sem.credit || isNaN(parseFloat(sem.credit)) || parseFloat(sem.credit) <= 0) {
+                    alert(`Please enter a valid positive credit for Semester ${sem.id}`);
+                    hasError = true;
+                    break;
+                }
                 const spiVal = parseFloat(sem.spi);
                 const creditVal = parseFloat(sem.credit);
 
@@ -89,8 +106,10 @@ const CPICalculator = () => {
                     totalCredits += creditVal;
                     totalPoints += spiVal * creditVal;
                 }
-            });
+            }
         }
+
+        if (hasError) return;
 
         if (totalCredits === 0) {
             setCpi(0);
@@ -149,6 +168,7 @@ const CPICalculator = () => {
                                 value={course.credit}
                                 onChange={(e) => handleCourseChange(course.id, 'credit', e.target.value)}
                                 className="input-credit"
+                                min="0"
                             />
                             <select
                                 value={course.grade}

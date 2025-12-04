@@ -48,6 +48,9 @@ const SPICalculator = () => {
         if (field === 'grade') {
             playAudio(value);
         }
+        if (field === 'credit' && value < 0) {
+            return; // Prevent negative values
+        }
         const newSubjects = subjects.map(sub =>
             sub.id === id ? { ...sub, [field]: value } : sub
         );
@@ -57,8 +60,15 @@ const SPICalculator = () => {
     const calculateSPI = () => {
         let totalCredits = 0;
         let totalPoints = 0;
+        let hasError = false;
 
-        subjects.forEach(sub => {
+        for (const sub of subjects) {
+            if (!sub.credit || isNaN(parseFloat(sub.credit)) || parseFloat(sub.credit) <= 0) {
+                alert(`Please enter a valid positive credit for subject ${sub.name || '#' + sub.id}`);
+                hasError = true;
+                break;
+            }
+
             const credit = parseFloat(sub.credit);
             const points = gradePoints[sub.grade];
 
@@ -66,7 +76,9 @@ const SPICalculator = () => {
                 totalCredits += credit;
                 totalPoints += credit * points;
             }
-        });
+        }
+
+        if (hasError) return;
 
         if (totalCredits === 0) {
             setSpi(0);
@@ -106,6 +118,7 @@ const SPICalculator = () => {
                             value={sub.credit}
                             onChange={(e) => handleChange(sub.id, 'credit', e.target.value)}
                             className="input-credit"
+                            min="0"
                         />
                         <select
                             value={sub.grade}

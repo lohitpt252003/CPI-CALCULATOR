@@ -16,7 +16,9 @@ A comprehensive React application for calculating Semester Performance Index (SP
 - **Toggle Switch**: Easily switch between modes based on your needs.
 
 ### 🎨 User Experience
-- **Dark & Light Mode**: Switch between themes for comfortable viewing.
+- **Global Theme Toggle**: Seamlessly switch between dark and light modes from the navigation bar. Your preference persists across all pages!
+- **Input Validation**: Smart validation ensures you only enter valid, positive credit values.
+- **Responsive Design**: Fully optimized for mobile and desktop devices.
 - **Data Persistence**: Your data is automatically saved to your browser's LocalStorage. Refreshing the page won't lose your work!
 - **Clear Data**: One-click reset button to wipe data and start fresh.
 - **Funny Audio Feedback**: Select Grade 'E' or 'F' for a surprise audio cue! 🎵
